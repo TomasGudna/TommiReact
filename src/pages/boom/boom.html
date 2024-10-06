@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Increment/Decrement</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <h1 id="display">0</h1>
+
+    <!-- Create a new container for the buttons -->
+    <div class="button-container">
+        <button id="increment">+</button>
+        <button id="decrement">-</button>
+    </div>
+
+    <p id="boom-message">!bOoMm!</p>
+
+    <div>
+        <label for="step">Set Increment/Decrement:</label>
+        <input type="number" id="step" value="5">
+    </div>
+    <div>
+        <label for="limit">Set Limit:</label>
+        <input type="number" id="limit" value="35">
+    </div>
+    <button id="save-settings">Save Settings</button>
+
+    <script>
+        let value = 0;
+        const displayElement = document.getElementById('display');
+        const boomMessageElement = document.getElementById('boom-message');
+
+        // Get saved values from localStorage
+        let incrementStep = localStorage.getItem('step') ? parseInt(localStorage.getItem('step')) : 5;
+        let limit = localStorage.getItem('limit') ? parseInt(localStorage.getItem('limit')) : 35;
+
+        document.getElementById('step').value = incrementStep;
+        document.getElementById('limit').value = limit;
+
+        document.getElementById('increment').addEventListener('click', function() {
+            value += incrementStep;
+            updateDisplay();
+        });
+
+        document.getElementById('decrement').addEventListener('click', function() {
+            value -= incrementStep;
+            updateDisplay();
+        });
+
+        // Save settings to localStorage
+        document.getElementById('save-settings').addEventListener('click', function() {
+            incrementStep = parseInt(document.getElementById('step').value);
+            limit = parseInt(document.getElementById('limit').value);
+
+            localStorage.setItem('step', incrementStep);
+            localStorage.setItem('limit', limit);
+        });
+
+        function updateDisplay() {
+            displayElement.textContent = value;
+
+            if (value > limit || value < -limit) {
+                boomMessageElement.style.display = 'block';
+            } else {
+                boomMessageElement.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
