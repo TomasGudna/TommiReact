@@ -38,14 +38,14 @@ return (
 
 export default function Home() {
   return (
-  <div className="flex clex-col gap-10 items-center justify-center bg-green-600">
+  <div className="flex clex-col gap-10 items-center justify-center bg-green-600 m-4">
     <main className="m-6 p-2">
     <h1 className="text-white">Expense Tracker</h1>
-    <div className="">
-    <input className="text-black"></input>
+    <div className="p-4">
+    <input placeholder = "Add expense" className="border text-black"></input>
     </div>
-    <div className="">
-    <input className="text-black"></input>
+    <div className="p-4">
+    <input className="border text-black" placeholder="wow"></input>
     </div>
     </main>
   </div>
