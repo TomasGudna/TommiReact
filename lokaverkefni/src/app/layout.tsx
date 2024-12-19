@@ -26,7 +26,7 @@ export default function RootLayout({
           </div>
 
           <nav>
-            <ul className="flex space-x-4 text-[#BA2329] font-bold text-xl">
+            <ul className="flex space-x-4 text-[#c7bf2c] font-bold text-xl">
               <li>
                 <Link href="/" className=" hover:underline">
                   Home
@@ -51,12 +51,12 @@ export default function RootLayout({
           </nav>
         </header>
 
-        <main className="flex-grow p-8 bg-[#e6da28] text-[#c7bf2c]">
+        <main className="flex-grow p-8 bg-[#d2d286] text-[#c7bf2c]">
           {children}
         </main>
 
         <footer className="bg-[#3E6053] p-4 text-center">
-          <p className="text-sm text-[#BA2329]">&copy; Lil Bit's</p>
+          <p className="text-sm text-[#c7bf2c]">&copy; Lil Bit's</p>
         </footer>
       </body>
     </html>
